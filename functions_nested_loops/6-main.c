@@ -1,8 +1,17 @@
-#ifndef MAIN_H
-#define MAIN_H
+#include <stdio.h>
+#include <limits.h>
+#include "main.h"
 
-int _putchar(char c);
-int _abs(int n);
+/**
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	int r;
 
-#endif /* MAIN_H */
-
+	r = _abs(-1);
+	printf("%d\n", r);
+	return (0);
+}
