@@ -17,7 +17,7 @@ printf("%d, ", n);
 else
 {
 for (; n > 98; n--)
-{ 
+{
 printf("%d, ", n);
 }
 }
