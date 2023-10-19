@@ -1,0 +1,33 @@
+# Makefile for building the "school" executable
+
+# Compiler and flags
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Source files
+SRCS = main.c school.c
+
+# Object files
+OBJS = $(SRCS:.c=.o)
+
+# Executable name
+EXEC = school
+
+# Default target (all)
+all: $(EXEC)
+
+# Build the executable
+$(EXEC): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Compile source files to object files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Clean rule to remove object files and the executable
+clean:
+	rm -f $(OBJS) $(EXEC)
+
+# Phony targets
+.PHONY: all clean
+
