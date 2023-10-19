@@ -1,14 +1,12 @@
-#include "main.h"
-#include <stdio.h>
+/* main.h - Header file containing function prototypes */
+#ifndef MAIN_H
+#define MAIN_H
 
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    printf("%d\n", mul(98, 1024));
-    printf("%d\n", mul(-402, 4096));
-    return (0);
-}
+/* Prototype for the mul function */
+int mul(int a, int b);
+
+/* Prototype for the _putchar function */
+int _putchar(char c);
+
+#endif /* MAIN_H */
+
