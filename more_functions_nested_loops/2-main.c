@@ -2,17 +2,13 @@
 #include <stdio.h>
 
 /**
- * main - check the code for Holberton School students.
+ * main - check the code
  *
  * Return: Always 0.
  */
 int main(void)
 {
-	int i;
-	int j;
-
-	i = 3;
-	j = 4;
-	printf("%d * %d: %d\n", i, j, mul(i, j));
-	return (0);
+    printf("%d\n", mul(98, 1024));
+    printf("%d\n", mul(-402, 4096));
+    return (0);
 }
