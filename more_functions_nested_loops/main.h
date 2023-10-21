@@ -26,12 +26,7 @@ int _putchar(char c);
 void print_square(int size);
 
 int _putchar(char c);
-void print_fizz(void);
-void print_buzz(void);
-void print_fizzbuzz(void);
-void print_number(int n);
-void print_space(void);
-void print_new_line(void);
+void fizz_buzz(void);
 
 #endif /* MAIN_H */
 

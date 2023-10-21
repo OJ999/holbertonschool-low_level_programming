@@ -1,66 +1,50 @@
 #include "main.h"
-#include <unistd.h>  // Include the unistd library.
 
+/**
+ * _putchar - Write a character to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
 int _putchar(char c)
 {
-    write(1, &c, 1);
-    return 1;  // Return a value to indicate success.
+    return write(1, &c, 1);
 }
 
-void _putchar(char c)
+/**
+ * fizz_buzz - Prints numbers from 1 to 100 with Fizz, Buzz, and FizzBuzz rules
+ */
+void fizz_buzz(void)
 {
-    write(1, &c, 1);
-}
+    int i;
 
-void print_fizzbuzz(void)
-{
-    // Implementation for FizzBuzz
-}
+    for (i = 1; i <= 100; i++)
+    {
+        if (i % 3 == 0)
+            _putchar('F');
+        if (i % 5 == 0)
+            _putchar('B');
+        if (i % 3 != 0 && i % 5 != 0)
+        {
+            int num = i;
+            while (num > 0)
+            {
+                _putchar((num % 10) + '0');
+                num /= 10;
+            }
+        }
 
-void print_fizz(void)
-{
-    // Implementation for Fizz
-}
-
-void print_buzz(void)
-{
-    // Implementation for Buzz
-}
-
-void print_number(int n)
-{
-    // Implementation for printing a number
-}
-
-void print_space(void)
-{
-    _putchar(' ');
-}
-
-void print_new_line(void)
-{
-    _putchar('\n');
+        if (i != 100)
+            _putchar(' ');
+        else
+            _putchar('\n');
+    }
 }
 
 int main(void)
 {
-    for (int i = 1; i <= 100; i++)
-    {
-        if (i % 3 == 0 && i % 5 == 0)
-            print_fizzbuzz();
-        else if (i % 3 == 0)
-            print_fizz();
-        else if (i % 5 == 0)
-            print_buzz();
-        else
-            print_number(i);
-
-        if (i < 100)
-            print_space();
-        else
-            print_new_line();
-    }
-
+    fizz_buzz();
     return (0);
 }
 
