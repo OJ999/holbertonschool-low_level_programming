@@ -10,7 +10,7 @@
  */
 int _putchar(char c)
 {
-    return putchar(c); /* Use putchar from the standard library */
+return (putchar(c)); /* Use putchar from the standard library */
 }
 
 /**
