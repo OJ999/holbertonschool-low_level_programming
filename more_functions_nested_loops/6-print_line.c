@@ -12,7 +12,7 @@ _putchar('\n');
 }
 else
 {
-while (n > 0) 
+while (n > 0)
 {
 _putchar('_');
 n--;
