@@ -10,7 +10,7 @@
  */
 int _putchar(char c)
 {
-    return write(1, &c, 1);
+    return putchar(c); /* Use putchar from the standard library */
 }
 
 /**
@@ -36,6 +36,13 @@ else
 printf("\n");
 }
 }
+
+/**
+ * main - Entry point of the program
+ *
+ * Return: 0 on success
+ */
+
 int main(void)
 {
 fizz_buzz();
