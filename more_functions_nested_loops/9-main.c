@@ -1,5 +1,5 @@
 int main(void)
 {
-    fizz_buzz(); // Call your FizzBuzz function here
+    // Your code here
     return (0);
 }
