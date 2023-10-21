@@ -1,8 +1,5 @@
-#include "main.h"
-
 int main(void)
 {
-    fizz_buzz();
+    fizz_buzz(); // Call your FizzBuzz function here
     return (0);
 }
-
