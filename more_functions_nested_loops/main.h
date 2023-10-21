@@ -25,6 +25,7 @@ void print_diagonal(int n);
 int _putchar(char c);
 void print_square(int size);
 
+int _putchar(char c);
 void print_fizz(void);
 void print_buzz(void);
 void print_fizzbuzz(void);

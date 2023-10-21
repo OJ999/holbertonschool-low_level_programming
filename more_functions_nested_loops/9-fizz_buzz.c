@@ -1,4 +1,11 @@
 #include "main.h"
+#include <unistd.h>  // Include the unistd library.
+
+int _putchar(char c)
+{
+    write(1, &c, 1);
+    return 1;  // Return a value to indicate success.
+}
 
 void _putchar(char c)
 {
