@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h> // Include the standard I/O library
+#include <stdio.h> /* Include the standard I/O library */
 
 /**
  * _putchar - Write a character to stdout
