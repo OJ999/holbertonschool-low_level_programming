@@ -1,13 +1,17 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * print_numbers - Prints numbers from 0 to 9, followed by a new line
  */
-int main(void)
+void print_numbers(void)
 {
-	print_numbers();
-	return (0);
+    int i;
+
+    for (i = 0; i < 10; i++)
+    {
+        _putchar(i + '0');  /* Convert the integer to character and print it */
+    }
+    
+    _putchar('\n');  /* Print a new line character to move to the next line */
 }
+
