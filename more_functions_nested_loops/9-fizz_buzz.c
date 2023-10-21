@@ -10,7 +10,7 @@
  */
 int _putchar(char c)
 {
-    return putchar(c); /* Use putchar from the standard library */
+    return write(1, &c, 1);
 }
 
 /**
@@ -19,7 +19,6 @@ int _putchar(char c)
 void fizz_buzz(void)
 {
 int i;
-
 for (i = 1; i <= 100; i++)
 {
 if (i % 3 == 0 && i % 5 == 0)
@@ -30,14 +29,12 @@ else if (i % 5 == 0)
 printf("Buzz");
 else
 printf("%d", i);
-
 if (i < 100)
 printf(" ");
 else
 printf("\n");
 }
 }
-
 int main(void)
 {
 fizz_buzz();
