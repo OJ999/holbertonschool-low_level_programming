@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h> /* Include the standard I/O library */
 
 /**
  * _putchar - Write a character to stdout
@@ -9,7 +10,7 @@
  */
 int _putchar(char c)
 {
-    return write(1, &c, 1);
+    return putchar(c); /* Use putchar from the standard library */
 }
 
 /**
@@ -21,7 +22,7 @@ void fizz_buzz(void)
 
     for (i = 1; i <= 100; i++)
     {
-        if (i % 3 == 0 && i % 5 == 0)
+	    if (i % 3 == 0 && i % 5 == 0)
             printf("FizzBuzz");
         else if (i % 3 == 0)
             printf("Fizz");
@@ -42,4 +43,4 @@ int main(void)
     fizz_buzz();
     return (0);
 }
-
+ 
