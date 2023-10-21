@@ -14,7 +14,7 @@ if (size <= 0)
 {
 _putchar('\n'); /* If size is 0 or less, print only a newline */
 }
-else 
+else
 {
 for (i = 1; i <= size; i++)
 {
