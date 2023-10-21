@@ -9,8 +9,9 @@ void print_numbers(void)
 
     for (i = 0; i < 10; i++)
     {
-        _putchar(i + '0');  // Convert the integer to character and print it
+        _putchar(i + '0');  /* Convert the integer to character and print it */
     }
     
-    _putchar('\n');  // Print a new line character to move to the next line
+    _putchar('\n');  /* Print a new line character to move to the next line */
 }
+

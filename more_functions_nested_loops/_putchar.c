@@ -1,7 +1,13 @@
-#ifndef MAIN_H
-#define MAIN_H
+#include <unistd.h>
 
-int _putchar(char c);
-void print_numbers(void);
+/**
+ * _putchar - Writes a character to stdout
+ * @c: The character to print
+ *
+ * Return: On success, 1. On error, -1.
+ */
+int _putchar(char c)
+{
+    return write(1, &c, 1);
+}
 
-#endif /* MAIN_H */
