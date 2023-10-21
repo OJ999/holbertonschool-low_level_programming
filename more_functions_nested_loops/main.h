@@ -28,5 +28,12 @@ void print_square(int size);
 int _putchar(char c);
 void fizz_buzz(void);
 
+/* Function prototype for the _putchar function */
+int _putchar(char c);
+
+/* Function prototype for the print_triangle function */
+void print_triangle(int size);
+
+
 #endif /* MAIN_H */
 
