@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h> // Include the standard I/O library
 
 /**
  * _putchar - Write a character to stdout
@@ -9,7 +10,7 @@
  */
 int _putchar(char c)
 {
-    return write(1, &c, 1);
+    return putchar(c); // Use putchar from the standard library
 }
 
 /**
