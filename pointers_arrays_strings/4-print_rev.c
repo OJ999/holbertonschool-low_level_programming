@@ -8,19 +8,15 @@ void print_rev(char *s)
 {
 int length = 0;
 
-/* Calculate the length of the string */
-while (*s != '\0')
+while (s[length] != '\0')
 {
 length++;
-s++;
 }
 
-/* Print the string in reverse order */
-for (length -= 1; length >= 0; length--)
+for (length--; length >= 0; length--)
 {
 _putchar(s[length]);
 }
 
-_putchar('\n'); /* Print a new line */
+_putchar('\n');
 }
-
