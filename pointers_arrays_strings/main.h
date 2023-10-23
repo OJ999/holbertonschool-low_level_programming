@@ -10,5 +10,8 @@ void swap_int(int *a, int *b); /* Function prototype for swap_int */
 int _putchar(char c);
 int _strlen(char *s); /* Function prototype for _strlen */
 
+int _putchar(char c);
+void _puts(char *str); /* Function prototype for _puts */
+
 #endif /* MAIN_H */
 
