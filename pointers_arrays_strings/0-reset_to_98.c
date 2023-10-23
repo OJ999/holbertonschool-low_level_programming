@@ -1,10 +1,9 @@
-int main()
+#include "main.h"
+
+void reset_to_98(int *n)
 {
-int num = 42;
-int *ptr = &num;
-
-reset_to_98(ptr);
-
-// Now, the value of num will be 98
-return 0;
+if (n != NULL)
+{
+*n = 98;  // Update the value pointed to by n to 98
+}
 }
