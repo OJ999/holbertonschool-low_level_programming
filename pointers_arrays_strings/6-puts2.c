@@ -10,10 +10,11 @@ void puts2(char *str)
 
     while (str[i] != '\0')
     {
-        _putchar(str[i]);
-        i += 2; /* Increment by 2 to skip every other character */
+        if (i % 2 == 0) // Check if the index is even
+            _putchar(str[i]);
+        i++;
     }
 
-    _putchar('\n'); /* Print a newline character at the end */
+    _putchar('\n'); // Print a newline character at the end
 }
 
