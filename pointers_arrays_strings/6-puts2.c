@@ -1,18 +1,30 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * puts2 - Prints every other character of a string, starting with the first.
- * @str: The string to be printed.
+ * print_rev - Prints a string in reverse, followed by a new line.
+ * @s: The string to be reversed and printed.
  */
-void puts2(char *str)
+void print_rev(char *s)
 {
-int i = 0;
+int length = 0;
 
-while (str[i] != '\0')
+while (s[length] != '\0')
 {
-_putchar(str[i]);
-i += 2; /* Skip to every other character */
+length++;
+}
+
+for (int i = length - 1; i >= 0; i--)
+{
+_putchar(s[i]);
 }
 
 _putchar('\n');
+}
+
+int main(void)
+{
+char *str = "Lorem ipsum...";
+print_rev(str);
+return (0);
 }
