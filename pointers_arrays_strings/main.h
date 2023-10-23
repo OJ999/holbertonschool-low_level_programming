@@ -13,5 +13,8 @@ int _strlen(char *s); /* Function prototype for _strlen */
 int _putchar(char c);
 void _puts(char *str); /* Function prototype for _puts */
 
+int _putchar(char c);
+void print_rev(char *s); /* Function prototype for print_rev */
+
 #endif /* MAIN_H */
 
