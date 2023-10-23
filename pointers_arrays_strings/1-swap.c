@@ -10,6 +10,6 @@ void swap_int(int *a, int *b)
 int temp;
 
 temp = *a;  /* Store the value pointed to by a in temp */
-*a = *b;    /* Update the value pointed to by a with the value pointed to by b */
+*a = *b;    /* Update value pointed by a with value pointed to by b */
 *b = temp;  /* Update the value pointed to by b with the value in temp */
 }
