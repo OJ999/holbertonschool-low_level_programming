@@ -22,7 +22,9 @@ void rev_string(char *s); /* Function prototype for rev_string */
 int _putchar(char c);
 void puts2(char *str); /* Function prototype for puts2 */
 
-
+int _putchar(char c);
+int _strlen(char *str);
+void puts_half(char *str);
 
 #endif /* MAIN_H */
 
