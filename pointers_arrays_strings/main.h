@@ -26,5 +26,9 @@ int _putchar(char c);
 int _strlen(char *str);
 void puts_half(char *str);
 
-#endif /* MAIN_H */
+int _putchar(char c);
+void print_array(int *a, int n);
 
+
+
+#endif /* MAIN_H */
