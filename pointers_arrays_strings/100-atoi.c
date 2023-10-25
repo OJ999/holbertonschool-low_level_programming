@@ -1,5 +1,4 @@
 #include "main.h"
-#include <limits.h> /* Include the limits.h header for INT_MAX and INT_MIN */
 
 /**
  * _atoi - Converts a string to an integer.
@@ -24,13 +23,11 @@ int _atoi(char *s)
     while (s[i] >= '0' && s[i] <= '9') {
         int digit = s[i] - '0';
 
-        // Check for integer overflow for positive numbers
-        if (sign == 1 && (result > (INT_MAX - digit) / 10))
-            return -1;  // Overflow
-
-        // Check for integer overflow for negative numbers
-        if (sign == -1 && (result < (INT_MIN + digit) / 10))
-            return 0;  // Overflow
+        /* Check for integer overflow */
+        if (sign == 1 && (result > 214748364 || (result == 214748364 && digit > 7)))
+            return -1;
+        if (sign == -1 && (result > 214748364 || (result == 214748364 && digit > 8)))
+            return 0;
 
         result = result * 10 + digit;
         i++;
