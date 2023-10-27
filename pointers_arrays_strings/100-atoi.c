@@ -23,17 +23,17 @@ int _atoi(char *s)
             numStarted = 1; /* Numeric characters have started */
             digit = s[i] - '0';
 
-            if (result == INT_MIN / 10 && digit == 8 && sign == -1) {
-                is_min = 1; /* Handle INT_MIN case */
-                result = INT_MIN;
-                break;
-            } else if (result < INT_MIN / 10) {
+            if (result < (INT_MIN + digit) / 10) {
                 return INT_MIN; /* Overflow, set to INT_MIN */
+            } else if (result == (INT_MIN + digit) / 10) {
+                if (sign == -1) {
+                    is_min = 1; /* Handle INT_MIN case */
+                }
             } else if (result > INT_MAX / 10) {
                 return INT_MAX; /* Overflow, set to INT_MAX */
             }
 
-            result = result * 10 + digit;
+            result = result * 10 - digit; // Note the subtraction here
         } else {
             if (numStarted) {
                 break; /* If numeric characters have started, stop at non-numeric characters */
