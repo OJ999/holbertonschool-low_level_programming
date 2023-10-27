@@ -1,6 +1,6 @@
 #include "main.h"
 
-int _atoi(char *s) /* Intro */
+int _atoi(char *s) /* Function implementation */
 {
 int result = 0; /* Initialize the result */
 int sign = 1;   /* Initialize the sign as positive (default) */
