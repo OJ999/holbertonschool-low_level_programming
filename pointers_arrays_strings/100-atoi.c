@@ -1,46 +1,34 @@
 #include "main.h"
 #include <limits.h>
 
-int _atoi(char *s)
-{
-    int sign = 1;  /* Initialize sign as positive */
-    int result = 0;
-    int i = 0;
-    int numStarted = 0; /* Indicates if numeric characters have started */
-    int is_min = 0; /* Flag to indicate INT_MIN case */
-    int digit; /* Declare digit outside the loop */
+int _atoi(char *s) {
+    int result = 0; // Initialize the result
+    int sign = 1;   // Initialize the sign as positive (default)
 
-    /* Handle signs and skip leading non-numeric characters */
-    while (s[i] != '\0') {
-        if (s[i] == '-' || s[i] == '+') {
-            if (numStarted) {
-                break; /* If numeric characters have started, stop at signs */
-            } else {
-                if (s[i] == '-')
-                    sign *= -1;  /* Toggle the sign for negative */
-            }
-        } else if (s[i] >= '0' && s[i] <= '9') {
-            numStarted = 1; /* Numeric characters have started */
-            digit = s[i] - '0';
-
-            if (result < INT_MIN / 10 || (result == INT_MIN / 10 && digit > 8)) {
-                return INT_MIN; /* Overflow, set to INT_MIN */
-            }
-
-            result = result * 10 - digit; // Note the subtraction here
-
-            if (result == INT_MIN) {
-                is_min = 1; /* Handle INT_MIN case */
-            }
-        } else {
-            if (numStarted) {
-                break; /* If numeric characters have started, stop at non-numeric characters */
-            }
+    // Check for leading '+' or '-' signs
+    while (*s == '+' || *s == '-') {
+        if (*s == '-') {
+            sign *= -1; // If '-', change the sign to negative
         }
-
-        i++;
+        s++; // Move to the next character
     }
 
-    return is_min ? INT_MIN : result * sign;
-}
+    // Parse the string to convert it to an integer
+    while (*s >= '0' && *s <= '9') {
+        int digit = *s - '0'; // Convert character to integer
+        // Check for integer overflow
+        if (result > (INT_MAX - digit) / 10) {
+            // Handle overflow (you can choose your preferred behavior)
+            if (sign == 1) {
+                return INT_MAX;
+            } else {
+                return INT_MIN;
+            }
+        }
+        result = result * 10 + digit;
+        s++; // Move to the next character
+    }
 
+    // Apply the sign to the result
+    return result * sign;
+}
