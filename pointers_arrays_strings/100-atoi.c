@@ -7,6 +7,7 @@ int _atoi(char *s)
     int result = 0;
     int i = 0;
     int numStarted = 0; /* Indicates if numeric characters have started */
+    int is_min = 0; /* Flag to indicate INT_MIN case */
     int digit; /* Declare digit outside the loop */
 
     /* Handle signs and skip leading non-numeric characters */
@@ -22,13 +23,13 @@ int _atoi(char *s)
             numStarted = 1; /* Numeric characters have started */
             digit = s[i] - '0';
 
-            /* Check for integer overflow for positive numbers */
-            if (sign == 1 && (result > (INT_MAX - digit) / 10))
-                return -1;  /* Overflow */
+            if (result == INT_MIN / 10 && digit == 8 && sign == -1) {
+                is_min = 1; /* Handle INT_MIN case */
+            }
 
-            /* Check for integer overflow for negative numbers */
-            if (sign == -1 && (result < (INT_MIN + digit) / 10))
-                return -1;  /* Overflow (changed to -1 to indicate INT_MIN) */
+            if (result > INT_MAX / 10 || (result == INT_MAX / 10 && digit > 7)) {
+                return is_min ? INT_MIN : INT_MAX; /* Overflow */
+            }
 
             result = result * 10 + digit;
         } else {
