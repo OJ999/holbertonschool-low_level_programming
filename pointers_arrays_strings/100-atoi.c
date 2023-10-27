@@ -33,7 +33,7 @@ int _atoi(char *s)
                 return INT_MAX; /* Overflow, set to INT_MAX */
             }
 
-            result = result * 10 - digit; // Note the subtraction here
+            result = result * 10 - digit;
         } else {
             if (numStarted) {
                 break; /* If numeric characters have started, stop at non-numeric characters */
