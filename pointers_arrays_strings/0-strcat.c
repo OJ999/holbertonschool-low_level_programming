@@ -25,7 +25,7 @@ char *_strcat(char *dest, char *src)
         i++;
     }
 
-    dest[dest_len] = '\0'; // Add the null-terminating character
+    dest[dest_len] = '\0'; /* Add the null-terminating character */
 
     return dest;
 }
