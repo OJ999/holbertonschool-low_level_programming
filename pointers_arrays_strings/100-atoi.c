@@ -25,6 +25,8 @@ int _atoi(char *s)
 
             if (result == INT_MIN / 10 && digit == 8 && sign == -1) {
                 is_min = 1; /* Handle INT_MIN case */
+                result = INT_MIN;
+                break;
             } else if (result < INT_MIN / 10) {
                 return INT_MIN; /* Overflow, set to INT_MIN */
             } else if (result > INT_MAX / 10) {
