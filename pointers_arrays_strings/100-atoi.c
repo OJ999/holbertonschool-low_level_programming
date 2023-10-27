@@ -5,17 +5,17 @@ int _atoi(char *s) {
     int sign = 1;   /* Initialize the sign as positive (default) */
     int foundDigit = 0; /* Flag to check if at least one digit is found */
 
-    /* Check for leading '+' or '-' signs */
-    while (*s == '+' || *s == '-') {
-        if (*s == '-') {
-            sign *= -1; /* If '-', change the sign to negative */
-        }
-        s++; /* Move to the next character */
-    }
-
     /* Parse the string to convert it to an integer */
     while (*s) {
-        if (*s >= '0' && *s <= '9') {
+        if (*s == '-' || *s == '+') {
+            /* Check for multiple signs, stop parsing if more than one sign is encountered */
+            if (foundDigit) {
+                break;
+            }
+            if (*s == '-') {
+                sign *= -1; /* If '-', change the sign to negative */
+            }
+        } else if (*s >= '0' && *s <= '9') {
             int digit = *s - '0'; /* Convert character to integer */
             /* Check for integer overflow */
             if (result > (INT_MAX - digit) / 10) {
