@@ -23,15 +23,15 @@ int _atoi(char *s)
             numStarted = 1; /* Numeric characters have started */
             digit = s[i] - '0';
 
-            if (result == INT_MIN / 10 && digit == 8 && sign == -1) {
+            if (result < INT_MIN / 10 || (result == INT_MIN / 10 && digit > 8)) {
+                return INT_MIN; /* Overflow, set to INT_MIN */
+            }
+
+            result = result * 10 - digit; // Note the subtraction here
+
+            if (result == INT_MIN) {
                 is_min = 1; /* Handle INT_MIN case */
             }
-
-            if (result > INT_MAX / 10 || (result == INT_MAX / 10 && digit > 7)) {
-                return is_min ? INT_MIN : INT_MAX; /* Overflow */
-            }
-
-            result = result * 10 + digit;
         } else {
             if (numStarted) {
                 break; /* If numeric characters have started, stop at non-numeric characters */
@@ -41,6 +41,6 @@ int _atoi(char *s)
         i++;
     }
 
-    return result * sign;
+    return is_min ? INT_MIN : result * sign;
 }
 
