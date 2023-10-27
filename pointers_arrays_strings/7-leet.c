@@ -19,7 +19,7 @@ for (j = 0; leet_dict[j] != '\0'; j++)
 if (str[i] == leet_dict[j])
 {
 str[i] = leet_encode[j];
-break; // Break the inner loop once a match is found
+break; /* Break the inner loop once a match is found */
 }
 }
 }
