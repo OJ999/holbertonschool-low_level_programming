@@ -28,7 +28,7 @@ int _atoi(char *s)
 
             /* Check for integer overflow for negative numbers */
             if (sign == -1 && (result < (INT_MIN + digit) / 10))
-                return 0;  /* Overflow */
+                return -1;  /* Overflow (changed to -1 to indicate INT_MIN) */
 
             result = result * 10 + digit;
         } else {
