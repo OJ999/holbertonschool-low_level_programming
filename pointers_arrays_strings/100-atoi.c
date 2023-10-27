@@ -1,31 +1,49 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - check the code
+ * _atoi - Converts a string to an integer.
+ * @s: The input string.
  *
- * Return: Always 0.
+ * Return: The integer value of the input string.
  */
-int main(void)
+int _atoi(char *s)
 {
-    int nb;
+    int sign = 1;  /* Initialize sign as positive */
+    int result = 0;
+    int i = 0;
+    int numStarted = 0; // Indicates if numeric characters have started
 
-    nb = _atoi("98");
-    printf("%d\n", nb);
-    nb = _atoi("-402");
-    printf("%d\n", nb);
-    nb = _atoi("          ------++++++-----+++++--98");
-    printf("%d\n", nb);
-    nb = _atoi("214748364");
-    printf("%d\n", nb);
-    nb = _atoi("0");
-    printf("%d\n", nb);
-    nb = _atoi("Suite 402");
-    printf("%d\n", nb);
-    nb = _atoi("         +      +    -    -98 Battery Street; San Francisco, CA 94111 - USA             ");
-    printf("%d\n", nb);
-    nb = _atoi("---++++ -++ Sui - te -   402 #cisfun :)");
-    printf("%d\n", nb);
-    return (0);
+    /* Handle signs and skip leading non-numeric characters */
+    while (s[i] != '\0') {
+        if (s[i] == '-' || s[i] == '+') {
+            if (numStarted) {
+                break; // If numeric characters have started, stop at signs
+            } else {
+                if (s[i] == '-')
+                    sign *= -1;  /* Toggle the sign for negative */
+            }
+        } else if (s[i] >= '0' && s[i] <= '9') {
+            numStarted = 1; // Numeric characters have started
+            int digit = s[i] - '0';
+
+            // Check for integer overflow for positive numbers
+            if (sign == 1 && (result > (INT_MAX - digit) / 10))
+                return -1;  // Overflow
+
+            // Check for integer overflow for negative numbers
+            if (sign == -1 && (result < (INT_MIN + digit) / 10))
+                return 0;  // Overflow
+
+            result = result * 10 + digit;
+        } else {
+            if (numStarted) {
+                break; // If numeric characters have started, stop at non-numeric characters
+            }
+        }
+
+        i++;
+    }
+
+    return result * sign;
 }
 
