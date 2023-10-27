@@ -1,44 +1,35 @@
 #include "main.h"
-#include <limits.h> /* Include the limits.h header for INT_MAX and INT_MIN */
+#include <limits.h>
 
-/**
- * _atoi - Converts a string to an integer.
- * @s: The input string.
- *
- * Return: The integer value of the input string.
- */
 int _atoi(char *s)
 {
-    int sign = 1;  /* Initialize sign as positive */
+    int sign = 1;
     int result = 0;
     int i = 0;
     int numStarted = 0; // Indicates if numeric characters have started
 
-    /* Handle signs and skip leading non-numeric characters */
     while (s[i] != '\0') {
         if (s[i] == '-' || s[i] == '+') {
             if (numStarted) {
-                break; // If numeric characters have started, stop at signs
+                break;
             } else {
                 if (s[i] == '-')
-                    sign *= -1;  /* Toggle the sign for negative */
+                    sign *= -1;
             }
         } else if (s[i] >= '0' && s[i] <= '9') {
-            numStarted = 1; // Numeric characters have started
+            numStarted = 1;
             int digit = s[i] - '0';
 
-            // Check for integer overflow for positive numbers
             if (sign == 1 && (result > (INT_MAX - digit) / 10))
-                return -1;  // Overflow
+                return -1;
 
-            // Check for integer overflow for negative numbers
             if (sign == -1 && (result < (INT_MIN + digit) / 10))
-                return 0;  // Overflow
+                return 0;
 
             result = result * 10 + digit;
         } else {
             if (numStarted) {
-                break; // If numeric characters have started, stop at non-numeric characters
+                break;
             }
         }
 
