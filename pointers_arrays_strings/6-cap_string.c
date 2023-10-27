@@ -8,8 +8,9 @@
 int is_separator(char c)
 {
 char separators[] = " \t\n,;.!?\"(){}";
+int i;
 
-for (int i = 0; separators[i] != '\0'; i++)
+for (i = 0; separators[i] != '\0'; i++)
 {
 if (c == separators[i])
 {
@@ -30,13 +31,14 @@ int i = 0;
 
 if (str[i] >= 'a' && str[i] <= 'z')
 {
-str[i] = str[i] - 32; // Convert the first character to uppercase
+str[i] = str[i] - 32; /* Convert the first character to uppercase */
 }
+
 while (str[i] != '\0')
 {
 if (is_separator(str[i]) && str[i + 1] >= 'a' && str[i + 1] <= 'z')
 {
-str[i + 1] = str[i + 1] - 32; // Convert the next character to uppercase
+str[i + 1] = str[i + 1] - 32; /* Convert the next character to uppercase */
 }
 i++;
 }
