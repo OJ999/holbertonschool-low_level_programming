@@ -7,7 +7,7 @@ int _atoi(char *s)
     int result = 0;
     int i = 0;
     int numStarted = 0; /* Indicates if numeric characters have started */
-    int digit; // Declare digit outside the loop
+    int digit; /* Declare digit outside the loop */
 
     /* Handle signs and skip leading non-numeric characters */
     while (s[i] != '\0') {
