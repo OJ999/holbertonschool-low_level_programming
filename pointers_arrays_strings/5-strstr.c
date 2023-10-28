@@ -25,5 +25,6 @@ return (start);
 haystack = start + 1;
 }
 
-return (0); // Returning 0 to indicate not found
+/* Returning NULL to indicate not found */
+return (NULL);
 }
