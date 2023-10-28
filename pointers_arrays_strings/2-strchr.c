@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>  // Include the <stddef.h> header for NULL
 
 /**
  * _strchr - Locates a character in a string
@@ -22,5 +23,5 @@ if (c == '\0')
 return (s);
 }
 
-return (NULL);
+return (NULL);  // Return NULL to indicate character not found
 }
