@@ -8,22 +8,23 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-while (*haystack)
-{
-char *start = haystack;
-char *pattern = needle;
+    while (*haystack)
+    {
+        char *start = haystack;
+        char *pattern = needle;
 
-while (*pattern && *haystack && *haystack == *pattern)
-{
-haystack++;
-pattern++;
+        while (*pattern && *haystack && *haystack == *pattern)
+        {
+            haystack++;
+            pattern++;
+        }
+
+        if (!*pattern)
+            return start;
+
+        haystack = start + 1;
+    }
+
+    return 0; /* Returning 0 to indicate not found */
 }
 
-if (!*pattern)
-return (start);
-
-haystack = start + 1;
-}
-
-return (0); // Returning 0 to indicate not found
-}
