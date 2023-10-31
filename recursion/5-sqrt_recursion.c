@@ -3,7 +3,7 @@
 /**
  * _sqrt_recursion - Returns the natural square root of a number.
  * @n: The number to find the square root of.
- * Return: The square root of n. If n does not have a natural square root, returns -1.
+ * Return: Square root n. If n doesn't have natural square root, returns -1.
  */
 int sqrt_recursive(int n, int i)
 {
@@ -20,6 +20,13 @@ else
 return (sqrt_recursive(n, i + 1)); /* Recursively search for the square root */
 }
 }
+
+/**
+ * _sqrt_recursion - Returns the natural square root of a number.
+ * @n: The number to find the square root of.
+ *
+ * Return: The square root of n. If n does not have a natural square root, returns -1.
+ */
 
 int _sqrt_recursion(int n)
 {
