@@ -21,7 +21,7 @@ return (is_prime_recursive(n, i + 1));
 }
 
 /**
- * is_prime_number - Returns 1 if the input integer is a prime number, otherwise returns 0.
+ * is_prime_number - Return 1 input integer prime number, otherwise returns 0.
  * @n: The number to check for primality.
  *
  * Return: 1 if n is a prime number, 0 otherwise.
