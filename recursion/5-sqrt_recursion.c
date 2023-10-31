@@ -7,7 +7,7 @@
  * Return: Square root n. If n doesn't have natural square root, returns -1.
  */
 
-int sqrt_recursive(int n, int i) /* sqrt_recursive - Return natural number. */
+int sqrt_recursive(int n, int i) /* sqrt_recursive function */
 {
 /* Base cases */
 if (i * i == n)
