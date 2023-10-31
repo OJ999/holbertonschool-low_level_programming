@@ -3,10 +3,12 @@
 /**
  * _sqrt_recursion - Returns the natural square root of a number.
  * @n: The number to find the square root of.
+ * @i: The current value to check if it's the square root of n.
  * Return: Square root n. If n doesn't have natural square root, returns -1.
  */
 int sqrt_recursive(int n, int i) /* _sqrt_recursion - Return natural number. */
 {
+/* Base cases */
 if (i * i == n)
 {
 return (i); /* If square of i equals n, i is the square root */
