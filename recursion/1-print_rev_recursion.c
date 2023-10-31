@@ -20,6 +20,6 @@ if (*s == '\0')
 return; /* Return at end of string */
 }
 
-_print_rev_recursion(s + 1); /* Recursively call function with the next character */
-_putchar(*s); /* Print current character after returning from recursive calls */
+_print_rev_recursion(s + 1); /* Recursively call function*/
+_putchar(*s); /* Print current character after returning recursive call */
 }
