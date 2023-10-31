@@ -6,7 +6,8 @@
  * @i: The current value to check if it's the square root of n.
  * Return: Square root n. If n doesn't have natural square root, returns -1.
  */
-int sqrt_recursive(int n, int i) /* _sqrt_recursion - Return natural number. */
+
+int sqrt_recursive(int n, int i) /* sqrt_recursive - Return natural number. */
 {
 /* Base cases */
 if (i * i == n)
@@ -22,6 +23,14 @@ else
 return (sqrt_recursive(n, i + 1)); /* Recursively search for the square root */
 }
 }
+
+/**
+ * _sqrt_recursion - Returns the natural square root of a number.
+ * @n: The number to find the square root of.
+ *
+ * Return: Square root of n. If n doesn't have natural square root, return -1.
+ */
+
 int _sqrt_recursion(int n)
 {
 if (n < 0)
