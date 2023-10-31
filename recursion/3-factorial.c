@@ -17,6 +17,6 @@ return (1); /* Factorial of 0 and 1 is 1 */
 }
 else
 {
-return (n *factorial(n - 1)); /* Calculate factorial using recursion */
+return (n * factorial(n - 1)); /* Calculate factorial using recursion */
 }
 }
