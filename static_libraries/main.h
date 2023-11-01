@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <unistd.h>  // Include any necessary libraries
+#include <unistd.h>  /* Include any necessary libraries */
 
 /* Function prototypes */
 int _putchar(char c);
