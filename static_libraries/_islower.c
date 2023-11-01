@@ -1,15 +1,10 @@
-#include <stdio.h> // For printf
+/* _islower.c */
 #include "main.h"
 
-int main(void) {
-    char testCharacters[] = {'A', 'a', 'Z', 'z', '5'};
-    int result;
-
-    for (int i = 0; i < sizeof(testCharacters) / sizeof(testCharacters[0]); i++) {
-        result = _islower(testCharacters[i]);
-        printf("Is '%c' lowercase? %d\n", testCharacters[i], result);
+int _islower(int c) {
+    if (c >= 'a' && c <= 'z') {
+        return 1;
     }
-
     return 0;
 }
 
