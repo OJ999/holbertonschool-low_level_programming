@@ -1,1 +1,1 @@
-Static lib readme
+readme file

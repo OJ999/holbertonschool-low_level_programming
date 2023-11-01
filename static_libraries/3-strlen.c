@@ -1,11 +1,10 @@
-/* _strlen.c */
 #include "main.h"
 
 int _strlen(char *s) {
+    // Implementation for _strlen
     int len = 0;
-    while (*s != '\0') {
+    while (s[len] != '\0') {
         len++;
-        s++;
     }
     return len;
 }
