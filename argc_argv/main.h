@@ -1,13 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-/* Prototypes */
-int _putchar(char c);
-void _putprogramname(char *name);
+#include <stdio.h>
 
-/* Prototypes */
-int _putchar(char c);
-void _putname(char *name);
+int main(int argc, char *argv[]);
 
 #endif /* MAIN_H */
 
