@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-(void)argv; // To avoid the unused parameter warning
+(void)argv; /* To avoid the unused parameter warning */
 printf("%d\n", argc - 1);
 return (0);
 }
