@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
-    /* Print the name of the program */
-    printf("%s\n", argv[0]);
+    (void)argc;  // To silence the unused variable warning
+    printf("%s\n", argv[0]);  // Printing the program name
 
     return 0;
 }
