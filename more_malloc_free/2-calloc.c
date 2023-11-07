@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 
 void *_calloc(unsigned int nmemb, unsigned int size) {
     void *ptr;
@@ -19,4 +20,3 @@ void *_calloc(unsigned int nmemb, unsigned int size) {
 
     return ptr;
 }
-
