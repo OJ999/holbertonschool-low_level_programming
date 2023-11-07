@@ -15,8 +15,9 @@ void *_calloc(unsigned int nmemb, unsigned int size) {
     if (ptr == NULL)
         return NULL;
 
-    // Set memory to zero using the standard function memset
+    /* Set memory to zero using the standard function memset */
     memset(ptr, 0, total_size);
 
     return ptr;
 }
+
