@@ -3,6 +3,12 @@
 #include <string.h>
 #include "dog.h"
 
+int main(void)
+{
+/* Your test code here */
+return (0);
+}
+
 /**
  * new_dog - Creates a new dog with specified name, age, and owner.
  * @name: Name of the dog.
