@@ -19,6 +19,12 @@ void print_dog(struct dog *d);
 
 /* New function prototype for creating a new dog */
 dog_t *new_dog(char *name, float age, char *owner);
+
+/**
+ * main - check the code .
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
 dog_t *my_dog;
