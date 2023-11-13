@@ -13,7 +13,7 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-// Implementation of the function as previously provided
+/* Implementation of the function as previously provided */
 dog_t *new_dog;
 new_dog = malloc(sizeof(dog_t));
 if (new_dog == NULL)
