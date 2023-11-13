@@ -1,6 +1,6 @@
 #include "3-calc.h"
-#include <stdio.h>   // Include for printf
-#include <stdlib.h>  // Include for exit
+#include <stdio.h>   /* Include for printf */
+#include <stdlib.h>  /* Include for exit */
 
 /**
  * get_op_func - selects the correct function to perform the operation.
@@ -20,7 +20,6 @@ op_t ops[] =
 {NULL, NULL}
 };
 int i = 0;
-
 while (ops[i].op != NULL)
 {
 if (*(ops[i].op) == *s && s[1] == '\0')

@@ -1,6 +1,6 @@
 #include "3-calc.h"
-#include <stdio.h>   // Include for printf
-#include <stdlib.h>  // Include for exit
+#include <stdio.h>   /* Include for printf */
+#include <stdlib.h>  /* Include for exit */
 
 /**
  * op_div - returns the result of the division of a by b.
