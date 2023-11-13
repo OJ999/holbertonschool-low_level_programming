@@ -11,6 +11,21 @@
  *
  * Return: Pointer to the newly created dog, or NULL if the function fails.
  */
+int main(void)
+{
+dog_t *my_dog;
+
+my_dog = new_dog("Ghost", 4.75, "Jon Snow");
+if (my_dog == NULL)
+{
+printf("Failed\n");
+return (1);
+}
+printf("My name is %s, I am %.2f, and my owner is %s\n",
+my_dog->name, my_dog->age, my_dog->owner);
+return (0);
+}
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
 dog_t *new_dog;
