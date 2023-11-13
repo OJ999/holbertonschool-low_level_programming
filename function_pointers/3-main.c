@@ -3,11 +3,10 @@
 #include "3-calc.h"
 
 /**
- * main - entry point
+ * main - performs simple operations
  * @argc: number of arguments
  * @argv: array of arguments
- *
- * Return: Always 0 (Success)
+ * Return: 0 on success, other values on failure
  */
 int main(int argc, char *argv[])
 {
@@ -22,13 +21,8 @@ int main(int argc, char *argv[])
 
     num1 = atoi(argv[1]);
     num2 = atoi(argv[3]);
-    operation = get_op_func(argv[2]);
 
-    if (operation == NULL)
-    {
-        printf("Error\n");
-        return (99);
-    }
+    operation = get_op_func(argv[2]);
 
     result = operation(num1, num2);
     printf("%d\n", result);
