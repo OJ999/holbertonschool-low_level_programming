@@ -3,25 +3,41 @@
 #include <string.h>
 #include "dog.h"
 
-int main(void)
+/**
+ * new_dog - Creates a new dog with specified name, age, and owner.
+ * @name: Name of the dog.
+ * @age: Age of the dog.
+ * @owner: Owner of the dog.
+ *
+ * Return: Pointer to the newly created dog, or NULL if the function fails.
+ */
+dog_t *new_dog(char *name, float age, char *owner)
 {
-    /* Create a new dog */
-    dog_t *my_dog = new_dog("Ghost", 4.75, "Jon Snow");
+dog_t *new_dog;
 
-    /* Check if the new_dog function failed */
-    if (my_dog == NULL)
-    {
-        fprintf(stderr, "Failed to create a new dog.\n");
-        return 1;
-    }
+/* Allocate memory for the new dog structure */
+new_dog = malloc(sizeof(dog_t));
+if (new_dog == NULL)
+return (NULL);
 
-    /* Print information about the dog */
-    printf("My name is %s, I am %.2f, and my owner is %s.\n", my_dog->name, my_dog->age, my_dog->owner);
+/* Allocate memory for the name and owner, and copy the values */
+new_dog->name = strdup(name);
+if (new_dog->name == NULL)
+{
+free(new_dog);
+return (NULL);
+}
 
-    /* Free the allocated memory */
-    free(my_dog->name);
-    free(my_dog->owner);
-    free(my_dog);
+new_dog->owner = strdup(owner);
+if (new_dog->owner == NULL)
+{
+free(new_dog->name);
+free(new_dog);
+return (NULL);
+}
 
-    return (0);
+/* Set the age of the dog */
+new_dog->age = age;
+
+return (new_dog);
 }
