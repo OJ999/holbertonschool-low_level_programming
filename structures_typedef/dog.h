@@ -20,4 +20,10 @@ void print_dog(struct dog *d);
 /* New function prototype for creating a new dog */
 dog_t *new_dog(char *name, float age, char *owner);
 
+/* Other necessary includes and structures */
+
+void free_dog(dog_t *d);
+
+/* Other function prototypes if needed */
+
 #endif /* DOG_H */
