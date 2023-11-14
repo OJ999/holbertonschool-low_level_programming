@@ -1,26 +1,27 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "variadic_functions.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
  * print_all - prints anything
- * @format: a list of types of arguments passed to the function
+ * @format: list of types of arguments passed to the function
+ *          c: char
+ *          i: integer
+ *          f: float
+ *          s: char * (if the string is NULL, print (nil) instead
  */
 void print_all(const char * const format, ...)
 {
     va_list args;
     unsigned int i = 0;
     char *str;
-    int first_arg = 1;  /* Variable to track if we are printing the first argument */
+    int num;
+    float f;
 
     va_start(args, format);
 
     while (format && format[i])
     {
-        /* Print comma only if not the first argument */
-        if (!first_arg && format[i - 1] != ',')
-            printf(", ");
-
         switch (format[i])
         {
             case 'c':
@@ -40,11 +41,12 @@ void print_all(const char * const format, ...)
                 break;
         }
 
-        first_arg = 0;  /* After printing the first argument, set to 0 */
+        if ((format[i] == 'c' || format[i] == 'i' || format[i] == 'f' || format[i] == 's') && format[i + 1] != '\0')
+            printf(", ");
+
         i++;
     }
 
-    printf("\n");
-
     va_end(args);
+    printf("\n");
 }
