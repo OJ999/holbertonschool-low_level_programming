@@ -18,7 +18,7 @@ void print_all(const char * const format, ...)
     while (format && format[i])
     {
         /* Print comma only if not the first argument */
-        if (!first_arg)
+        if (!first_arg && format[i - 1] != '\0')
             printf(", ");
 
         switch (format[i])
