@@ -11,13 +11,13 @@ void print_all(const char * const format, ...)
     va_list args;
     unsigned int i = 0;
     char *str;
-    int first_arg = 1;  // Variable to track if we are printing the first argument
+    int first_arg = 1;  /* Variable to track if we are printing the first argument */
 
     va_start(args, format);
 
     while (format && format[i])
     {
-        // Print comma only if not the first argument
+        /* Print comma only if not the first argument */
         if (!first_arg)
             printf(", ");
 
@@ -40,7 +40,7 @@ void print_all(const char * const format, ...)
                 break;
         }
 
-        first_arg = 0;  // After printing the first argument, set to 0
+        first_arg = 0;  /* After printing the first argument, set to 0 */
         i++;
     }
 
