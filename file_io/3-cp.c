@@ -45,16 +45,17 @@ int main(int argc, char *argv[]) {
     char buffer[BUFFER_SIZE];
     ssize_t bytes_read, bytes_written;
 
-    while ((bytes_read = read(file_from, buffer, BUFFER_SIZE)) > 0) {
+    do {
+        bytes_read = read(file_from, buffer, BUFFER_SIZE);
+        if (bytes_read == -1) {
+            print_error(98, argv[1]);
+        }
+
         bytes_written = write(file_to, buffer, bytes_read);
         if (bytes_written == -1 || bytes_written != bytes_read) {
             print_error(99, argv[2]);
         }
-    }
-
-    if (bytes_read == -1) {
-        print_error(98, argv[1]);
-    }
+    } while (bytes_read > 0);
 
     if (close(file_from) == -1) {
         print_error(100, argv[1]);
