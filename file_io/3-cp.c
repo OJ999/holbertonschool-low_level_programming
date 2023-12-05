@@ -6,6 +6,13 @@
 
 #define BUFFER_SIZE 1024
 
+/**
+ * main - Copies the content of a file to another file.
+ * @argc: The number of arguments.
+ * @argv: The array of arguments.
+ *
+ * Return: 0 on success, or the corresponding error code on failure.
+ */
 int main(int argc, char *argv[]) {
     int file_from, file_to, read_chars, write_chars;
     char buffer[BUFFER_SIZE];
@@ -55,6 +62,7 @@ int main(int argc, char *argv[]) {
 
     if (close(file_from) == -1 || close(file_to) == -1) {
         perror("Error");
+        dprintf(2, "Error: Can't close fd %d\n", file_from == -1 ? file_from : file_to);
         return 100;
     }
 
