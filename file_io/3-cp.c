@@ -17,6 +17,9 @@ int main(int argc, char **argv)
 {
     int file_from, file_to, read_chars, write_chars;
     char buffer[BUFFER_SIZE];
+    struct stat st;
+
+    struct stat st;
 
     if (argc != 3)
     {
@@ -31,8 +34,7 @@ int main(int argc, char **argv)
         return 98;
     }
 
-    struct stat st;
-    if (stat(argv[1], &st) == -1)
+    if (fstat(file_from, &st) == -1)
     {
         close(file_from);
         perror("Error");
