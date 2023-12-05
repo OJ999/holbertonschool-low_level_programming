@@ -60,6 +60,14 @@ int main(int argc, char *argv[]) {
         }
     } while (read_chars > 0);
 
+    // Explicitly set the permissions of the copied file (rw-rw-r--)
+    if (fchmod(file_to, st.st_mode & 0777) == -1) {
+        perror("Error");
+        close(file_from);
+        close(file_to);
+        return 99;
+    }
+
     if (close(file_from) == -1 || close(file_to) == -1) {
         perror("Error");
         dprintf(2, "Error: Can't close fd %d\n", file_from == -1 ? file_from : file_to);
