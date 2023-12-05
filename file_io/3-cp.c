@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
     } while (read_bytes > 0);
 
     if (close(fd_from) == -1 || close(fd_to) == -1) {
-        print_error(100, "Error: Can't close fd %d\n", (const char *)fd_to);
+        print_error(100, "Error: Can't close fd %d\n", (int)fd_to);
     }
 
     return 0;
