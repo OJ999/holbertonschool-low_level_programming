@@ -32,12 +32,13 @@ int main(int argc, char *argv[]) {
         print_error(97, NULL);
     }
 
-    int file_from = open(argv[1], O_RDONLY);
+    int file_from, file_to;
+    file_from = open(argv[1], O_RDONLY);
     if (file_from == -1) {
         print_error(98, argv[1]);
     }
 
-    int file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+    file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
     if (file_to == -1) {
         print_error(99, argv[2]);
     }
