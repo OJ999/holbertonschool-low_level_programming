@@ -7,8 +7,8 @@
 
 #define BUFFER_SIZE 1024
 
-void print_error(int code, const char *msg, const char *filename) {
-    dprintf(2, msg, filename);
+void print_error(int code, const char *msg, int value) {
+    dprintf(2, msg, value);
     exit(code);
 }
 
@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     ssize_t read_bytes, write_bytes;
 
     if (argc != 3) {
-        print_error(97, "Usage: %s file_from file_to\n", argv[0]);
+        print_error(97, "Usage: %s file_from file_to\n", 0);
     }
 
     file_from = argv[1];
@@ -28,13 +28,13 @@ int main(int argc, char *argv[]) {
 
     fd_from = open(file_from, O_RDONLY);
     if (fd_from == -1) {
-        print_error(98, "Error: Can't read from file %s\n", file_from);
+        print_error(98, "Error: Can't read from file %s\n", 0);
     }
 
     fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
     if (fd_to == -1) {
         close(fd_from);
-        print_error(99, "Error: Can't write to %s\n", file_to);
+        print_error(99, "Error: Can't write to %s\n", 0);
     }
 
     do {
@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
     } while (read_bytes > 0);
 
     if (close(fd_from) == -1 || close(fd_to) == -1) {
-        print_error(100, "Error: Can't close fd %d\n", (int)fd_to);
+        print_error(100, "Error: Can't close fd %d\n", fd_to);
     }
 
     return 0;
