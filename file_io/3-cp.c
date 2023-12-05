@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     ssize_t read_bytes, write_bytes;
 
     if (argc != 3) {
-        print_error(97, "Usage: %s file_from file_to\n", 0);
+        print_error(97, "Usage: %s file_from file_to\n", argv[0]);
     }
 
     file_from = argv[1];
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
     } while (read_bytes > 0);
 
     if (close(fd_from) == -1 || close(fd_to) == -1) {
-        print_error(100, "Error: Can't close fd %s\n", file_to);
+        print_error(100, "Error: Can't close fd %d\n", fd_to);
     }
 
     return 0;
