@@ -9,7 +9,7 @@
 
 void print_error(int code, const char *msg, const char *filename, int value) {
     if (filename == NULL) {
-        dprintf(2, msg, "(null)", value);
+        dprintf(2, msg, value);
     } else {
         dprintf(2, msg, filename, value);
     }
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
     } while (read_bytes > 0);
 
     if (close(fd_from) == -1 || close(fd_to) == -1) {
-        print_error(100, "Error: Can't close fd %d\n", file_to, 0);
+        print_error(100, "Error: Can't close fd %d\n", fd_to, 0);
     }
 
     return 0;
