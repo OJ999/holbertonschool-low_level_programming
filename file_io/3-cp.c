@@ -8,18 +8,21 @@
 #define BUFFER_SIZE 1024
 
 void print_error(int code, const char *file_name) {
+    const char *file_name_only = strrchr(file_name, '/');
+    file_name_only = (file_name_only == NULL) ? file_name : file_name_only + 1;
+
     switch (code) {
         case 97:
             dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
             break;
         case 98:
-            dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_name);
+            dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_name_only);
             break;
         case 99:
-            dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_name);
+            dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_name_only);
             break;
         case 100:
-            dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", file_name);
+            dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", file_name_only);
             break;
         default:
             break;
