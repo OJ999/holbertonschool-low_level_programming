@@ -17,7 +17,8 @@ int file_descriptor, write_chars, close_result;
 if (filename == NULL)
 return (-1);
 
-file_descriptor = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+file_descriptor = open
+(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 if (file_descriptor == -1)
 return (-1);
 
