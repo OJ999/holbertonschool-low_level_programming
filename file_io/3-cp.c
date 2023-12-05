@@ -20,14 +20,14 @@ int main(int argc, char **argv)
     if (argc != 3)
     {
         dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
-        exit(97);
+        return 97;
     }
 
     file_from = open(argv[1], O_RDONLY);
     if (file_from == -1)
     {
         dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-        exit(98);
+        return 98;
     }
 
     file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     {
         dprintf(2, "Error: Can't write to %s\n", argv[2]);
         close(file_from);
-        exit(99);
+        return 99;
     }
 
     do
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
             dprintf(2, "Error: Can't read from file %s\n", argv[1]);
             close(file_from);
             close(file_to);
-            exit(98);
+            return 98;
         }
 
         write_chars = write(file_to, buffer, read_chars);
@@ -55,21 +55,21 @@ int main(int argc, char **argv)
             dprintf(2, "Error: Can't write to %s\n", argv[2]);
             close(file_from);
             close(file_to);
-            exit(99);
+            return 99;
         }
     } while (read_chars > 0);
 
     if (close(file_from) == -1)
     {
         dprintf(2, "Error: Can't close fd %d\n", file_from);
-        exit(100);
+        return 100;
     }
 
     if (close(file_to) == -1)
     {
         dprintf(2, "Error: Can't close fd %d\n", file_to);
-        exit(100);
+        return 100;
     }
 
-    return (0);
+    return 0;
 }
