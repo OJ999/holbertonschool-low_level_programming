@@ -20,10 +20,10 @@ int main(int argc, char **argv)
     struct stat st;
 
     if (argc != 3)
-    {
-        dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
-        return 97;
-    }
+{
+    dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
+    return 97;
+}
 
     file_from = open(argv[1], O_RDONLY);
     if (file_from == -1)
