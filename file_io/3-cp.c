@@ -68,23 +68,10 @@ int main(int argc, char **argv)
         }
     } while (read_chars > 0);
 
-    if (close(file_from) == -1)
-    {
-        dprintf(2, "Error: Can't close fd %d\n", file_from);
-        return 100;
-    }
-
-    if (close(file_to) == -1)
-    {
-        dprintf(2, "Error: Can't close fd %d\n", file_to);
-        return 100;
-    }
-
-    /* Explicitly set the permissions of the copied file (rw-rw-r--) */
-    if (chmod(argv[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH) == -1)
+    if (close(file_from) == -1 || close(file_to) == -1)
     {
         perror("Error");
-        return 99;
+        return 100;
     }
 
     return 0;
