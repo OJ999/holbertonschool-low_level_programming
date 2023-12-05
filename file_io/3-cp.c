@@ -80,7 +80,7 @@ int main(int argc, char **argv)
         return 100;
     }
 
-    // Explicitly set the permissions of the copied file (rw-rw-r--)
+    /* Explicitly set the permissions of the copied file (rw-rw-r--) */
     if (chmod(argv[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH) == -1)
     {
         perror("Error");
