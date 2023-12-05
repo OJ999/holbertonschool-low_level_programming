@@ -7,11 +7,11 @@
 
 #define BUFFER_SIZE 1024
 
-void print_error(int code, const char *msg, const char *value) {
-    if (value == NULL) {
-        dprintf(2, msg, "(null)");
+void print_error(int code, const char *msg, const char *filename, int value) {
+    if (filename == NULL) {
+        dprintf(2, msg, "(null)", value);
     } else {
-        dprintf(2, msg, value);
+        dprintf(2, msg, filename, value);
     }
     exit(code);
 }
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     ssize_t read_bytes, write_bytes;
 
     if (argc != 3) {
-        print_error(97, "Usage: %s file_from file_to\n", argv[0]);
+        print_error(97, "Usage: %s file_from file_to\n", argv[0], 0);
     }
 
     file_from = argv[1];
@@ -32,13 +32,13 @@ int main(int argc, char *argv[]) {
 
     fd_from = open(file_from, O_RDONLY);
     if (fd_from == -1) {
-        print_error(98, "Error: Can't read from file %s\n", file_from);
+        print_error(98, "Error: Can't read from file %s\n", file_from, 0);
     }
 
     fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
     if (fd_to == -1) {
         close(fd_from);
-        print_error(99, "Error: Can't write to %s\n", file_to);
+        print_error(99, "Error: Can't write to %s\n", file_to, 0);
     }
 
     do {
@@ -46,19 +46,19 @@ int main(int argc, char *argv[]) {
         if (read_bytes == -1) {
             close(fd_from);
             close(fd_to);
-            print_error(98, "Error: Can't read from file %s\n", file_from);
+            print_error(98, "Error: Can't read from file %s\n", file_from, 0);
         }
 
         write_bytes = write(fd_to, buffer, read_bytes);
         if (write_bytes == -1) {
             close(fd_from);
             close(fd_to);
-            print_error(99, "Error: Can't write to %s\n", file_to);
+            print_error(99, "Error: Can't write to %s\n", file_to, 0);
         }
     } while (read_bytes > 0);
 
     if (close(fd_from) == -1 || close(fd_to) == -1) {
-        print_error(100, "Error: Can't close fd %d\n", fd_to);
+        print_error(100, "Error: Can't close fd %d\n", file_to, 0);
     }
 
     return 0;
