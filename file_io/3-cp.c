@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
         }
     } while (read_chars > 0);
 
-    // Explicitly set the permissions of the copied file (rw-rw-r--)
+    /* Explicitly set the permissions of the copied file (rw-rw-r--) */
     if (fchmod(file_to, st.st_mode & 0777) == -1) {
         perror("Error");
         close(file_from);
