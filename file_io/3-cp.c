@@ -32,7 +32,9 @@ int main(int argc, char *argv[]) {
         print_error(97, NULL);
     }
 
-    int file_from, file_to;
+    int file_from;
+    int file_to;
+
     file_from = open(argv[1], O_RDONLY);
     if (file_from == -1) {
         print_error(98, argv[1]);
@@ -44,7 +46,8 @@ int main(int argc, char *argv[]) {
     }
 
     char buffer[BUFFER_SIZE];
-    ssize_t bytes_read, bytes_written;
+    ssize_t bytes_read;
+    ssize_t bytes_written;
 
     do {
         bytes_read = read(file_from, buffer, BUFFER_SIZE);
