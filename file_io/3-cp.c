@@ -8,7 +8,11 @@
 #define BUFFER_SIZE 1024
 
 void print_error(int code, const char *msg, const char *value) {
-    dprintf(2, msg, value);
+    if (value == NULL) {
+        dprintf(2, msg, "(null)");
+    } else {
+        dprintf(2, msg, value);
+    }
     exit(code);
 }
 
