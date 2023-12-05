@@ -19,8 +19,6 @@ int main(int argc, char **argv)
     char buffer[BUFFER_SIZE];
     struct stat st;
 
-    struct stat st;
-
     if (argc != 3)
     {
         dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
