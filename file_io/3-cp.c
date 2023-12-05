@@ -28,12 +28,13 @@ void print_error(int code, const char *file_name) {
 }
 
 int main(int argc, char *argv[]) {
+    int file_from, file_to;
+    char buffer[BUFFER_SIZE];
+    ssize_t bytes_read, bytes_written;
+
     if (argc != 3) {
         print_error(97, NULL);
     }
-
-    int file_from;
-    int file_to;
 
     file_from = open(argv[1], O_RDONLY);
     if (file_from == -1) {
@@ -44,10 +45,6 @@ int main(int argc, char *argv[]) {
     if (file_to == -1) {
         print_error(99, argv[2]);
     }
-
-    char buffer[BUFFER_SIZE];
-    ssize_t bytes_read;
-    ssize_t bytes_written;
 
     do {
         bytes_read = read(file_from, buffer, BUFFER_SIZE);
