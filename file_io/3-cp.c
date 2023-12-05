@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <sys/stat.h>
 
 #define BUFFER_SIZE 1024
 
@@ -30,7 +31,15 @@ int main(int argc, char **argv)
         return 98;
     }
 
-    file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    struct stat st;
+    if (stat(argv[1], &st) == -1)
+    {
+        close(file_from);
+        perror("Error");
+        return 98;
+    }
+
+    file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, st.st_mode);
     if (file_to == -1)
     {
         dprintf(2, "Error: Can't write to %s\n", argv[2]);
