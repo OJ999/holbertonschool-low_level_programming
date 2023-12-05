@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <string.h>  /* Add this line */
 
 #define BUFFER_SIZE 1024
 
